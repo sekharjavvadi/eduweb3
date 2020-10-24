@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--header-->
+<%- include('./partials/header'); %>
+
+<body>
+
+
+                   <!--navigation-->
+
+<%- include('./partials/navbar'); %>
+
+
+                              <!--topics section-->
+
+<div class="topics-page">
+<p class="topics-btn">Get Topics</p>
+<div class="topics">
+  <p class="close-btn">X</p>
+    <h3>Topics</h3>
+    <ol>
+      <% for(var i=0; i<vtopics.length; i++) {%>
+         <li><%= vtopics[i] %></li>
+      <% } %>
+      </ol>
+
+</div>
+
+
+
+
+<div class="videos">
+    
+  <%  for(var i=0;i<vlinks.length; i++){%>
+    <h3><%=vtopics[i]%></h3>
+      <br>
+      <iframe width="900px" height="500px" 
+      <% if (i>3){ %>
+        <% if(validd==true){ %>
+          src= "<%=vlinks[i]%>" 
+       <% } %>
+        
+     <% } else { %>
+      src= "<%=vlinks[i]%>" 
+
+     <% } %>
+     
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <p><%= vdescription[i] %></p>
+  <%  }%>
+
+</div>
+</div>
+     <!--get in touch-->
+
+<%- include('./partials/keepintouch'); %>
+
+
+
+
+
+
+
+
+<!--footer-->
+<%- include('./partials/footer'); %>
+
+    <!--internal scripts
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="jquery.counterup.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="script.js"></script>
+<script>
+  jQuery(document).ready(function( $ ) {
+    $('.counter').counterUp({
+    delay: 10,
+    time: 1000
+});
+});
+</script>
+<script>
+  $(window).scroll(function() {
+    $('nav').toggleClass('scrolled', $(this).scrollTop() > 800);
+  });
+</script>-->
+
+
+
+<script>
+
+var button = document.querySelector(".topics-btn");
+var topicBar = document.querySelector(".topics");
+var closeBtn = document.querySelector(".close-btn");
+
+button.addEventListener("click", function() {
+     topicBar.style.display = "block";
+});
+
+closeBtn.addEventListener("click", function() {
+  topicBar.style.display = "none";
+});
+
+</script>
+<script>
+  var a = 1 ;
+  function show_hide() {
+    if (a==1) {
+      document.querySelector(".dashboard").style.display = "block";
+      return a = 0;
+    }else {
+      document.querySelector(".dashboard").style.display = "none";
+      return a = 1;
+    }
+  }
+</script>
+<script>
+
+  function show_dropdown() {
+      document.querySelector(".dropdown-menu").style.display = "block";
+    }
+    
+    
+    function remove_dropdown() {
+      document.querySelector(".dropdown-menu").style.display = "none";
+    }
+
+    function show_list() {
+      document.querySelector(".dropdown-list").style.display = "block";
+    }
+    
+    
+    function hide_list() {
+      document.querySelector(".dropdown-list").style.display = "none";
+    }
+</script>
+</body>
+</html>
